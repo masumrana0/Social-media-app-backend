@@ -1,3 +1,11 @@
+/**
+ * Title: 'App Error handled By Masum Rana'
+ * Description: 'In this error I Handle multifle of Error . Like Zod Error,Mongoose Validation Error, My custom made ApiError,'
+ * Author: 'Masum Rana'
+ * Date: 18-01-2024
+ *
+ */
+
 import { ErrorRequestHandler, Request, Response } from 'express';
 import config from '../../config';
 import handleValidationError from '../../errors/handleValidationError';

@@ -1,8 +1,9 @@
 # SOCIAL-MEDIA-BACKEND
 
 ## Overview
-Social-Media.In this app have become an integral part of daily life, offering users diverse features to share, interact, and engage with content. 
- 
+
+Social-Media.In this app have become an integral part of daily life, offering users diverse features to share, interact, and engage with content.
+
 ## Social Media Application - Key Features
 
 ### User Profiles:
@@ -80,6 +81,28 @@ When you contribute, you will create a branch in your own name. Then, you will p
 git push origin brach-name
 ```
 
+## How to commit organisely
+
+#### Commit-type
+
+- auth: User authentication.
+- feat: A new feature for the user.
+- fix: A bug fix.
+- chore: Routine tasks, maintenance, or refactoring.
+- docs: Documentation changes.
+- style: Code style changes (e.g., formatting).
+
+##### commit message format
+
+git commit -m '<type>:[description]',
+
+- **Like:**
+
+```bash
+  git commit -m '<auth>: implement JWT-based authentication'
+
+```
+
 ### Data Pattern
 
 - **Register:**
@@ -112,3 +135,6 @@ git push origin brach-name
   "password": "123456"
 }
 ```
+
+Thank You.
+written by Masum Rana.
