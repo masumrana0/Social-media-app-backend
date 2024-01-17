@@ -96,11 +96,12 @@ git push origin brach-name
 
 git commit -m '<type>:[description]',
 
-- **Like:** ```bash
+- **Like:**
+
+```bash
   git commit -m '<auth>: implement JWT-based authentication'
 
-````
-
+```
 
 ### Data Pattern
 
@@ -124,7 +125,7 @@ git commit -m '<type>:[description]',
   "socialMediaLinks": ["facebook", "Linkedin", "GitHub"],
   "post": []
 }
-````
+```
 
 - **Login**
 

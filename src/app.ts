@@ -1,3 +1,11 @@
+/**
+ * Title: 'Initial Project with professtional Error Handling setup by Masum Rana'
+ * Description: ''
+ * Author: 'Masum Rana'
+ * Date: 18-01-2024
+ *
+ */
+
 import express, { Application } from 'express';
 import cors from 'cors';
 import GlobalErrorHandler from './app/middlewares/GlobalErrorHanlder';
