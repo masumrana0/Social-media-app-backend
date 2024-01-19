@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\shakil\\projects\\New folder\\Social-media-app-backend\\logs\\winston\\errors\\.8697e93bdeb8bb3e266128970246d06e388e9e52-audit.json",
+    "files": [
+        {
+            "date": 1705665865616,
+            "name": "C:\\Users\\shakil\\projects\\New folder\\Social-media-app-backend\\logs\\winston\\errors\\error-2024-01-19-18.log",
+            "hash": "7ae49ae959c31aeba04fda53efa2d895ebabf45762ccec4b3171568664661b76"
+        }
+    ],
+    "hashType": "sha256"
+}
