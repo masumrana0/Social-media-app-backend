@@ -105,6 +105,12 @@ git commit -m '<type>:[description]',
 
 ### Data Pattern
 
+#### Collection
+
+- **user:**
+- **profile**:
+- **post**:
+- **comment**:
 - **Register:**
 
 ```json
@@ -116,15 +122,17 @@ git commit -m '<type>:[description]',
   },
   "email": "omukhasan@gmail.com",
   "PhoneNumber": "01978797987",
-  "skills": ["JavaScript", "React js"],
-  "Education": ["HSC", "honus", "masters"],
-  "Gender": "male",
-  "Nationality": "Bangladeshi",
-  "DateofBirth": "12/01/2023",
-  "profilePicture": "url",
-  "socialMediaLinks": ["facebook", "Linkedin", "GitHub"],
-  "post": []
+  "password": "12345"
 }
+```
+
+- **goole authentication**
+
+```json
+"userName":"omukhasan123",
+"photoUrl":" ",
+"displayName":"Omuk Hasan ",
+"email":"omoukhasan@gmail.com",
 ```
 
 - **Login**
@@ -133,6 +141,57 @@ git commit -m '<type>:[description]',
 {
   "email": "masum.rana6267@gmail.com",
   "password": "123456"
+}
+```
+
+- **Profile:**:
+
+```json
+  "user":"reference id",
+  "Bio":"ramdom text "
+  "skills": ["JavaScript", "React js"],
+  "Education": ["HSC", "honus", "masters"],
+  "Gender": "male",
+  "Nationality": "Bangladeshi",
+  "DateofBirth": "12/01/2023",
+  "profilePicture": "url",
+  "socialMediaLinks": ["https://www.facebook.com/", "https://www.linkedin.com/", "https://github.com/"],
+  "friendList":['reference id']
+```
+
+- **post**:
+
+```json
+[
+  {
+    "user": "reference id",
+    "hashTag": "#random",
+    "status": " ramdom text anythig ",
+    "Images": [],
+    "comments": "reference id",
+    "Reactions": [
+      { "userID": 555, "emoji": "👍" },
+      { "userID": 999, "emoji": "❤️" },
+      { "userID": 555, "emoji": "👎" }
+    ],
+    "Location": {"latitude": 37.7749, "longitude": -122.4194},
+    "ShareCount": 10
+    "postVisibility":{
+      "public":true,
+      "friendlyOnly":true,
+      "onlyMe":false
+    }
+  }
+  "sharedPost": "reference id",
+]
+```
+
+- **Notification**:,
+
+```json
+{
+  "user": "reference id",
+  "text": "ramdomString"
 }
 ```
 
