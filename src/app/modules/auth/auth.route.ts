@@ -1,13 +1,14 @@
 import express from 'express';
-import validateRequest from '../../middlewares/ValidateRequest';
+
 import { ENUM_USER_ROLE } from '../../Enum/role';
-import { loginZodSchema } from './login/login.validation';
 import auth from '../../middlewares/auth';
-import { AuthController } from './auth.controller';
+import validateRequest from '../../middlewares/ValidateRequest';
 import { userValidationZodSchema } from '../user/user.validation';
-import { RegistrationController } from './registration/registration.controller';
+import { AuthController } from './auth.controller';
 import { authValidationSchema } from './auth.validation';
 import { LoginController } from './login/login.controller';
+import { loginZodSchema } from './login/login.validation';
+import { RegistrationController } from './registration/registration.controller';
 
 const router = express.Router();
 
@@ -42,5 +43,7 @@ router.post(
   auth(ENUM_USER_ROLE.NORMAL_USER, ENUM_USER_ROLE.ADMIN),
   AuthController.changePassword,
 );
+
+router.get('/get-users-to-make-community', AuthController.getUsersToMakeCommunity);
 
 export const AuthRoutes = router;

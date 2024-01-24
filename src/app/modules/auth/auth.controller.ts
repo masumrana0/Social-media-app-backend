@@ -1,17 +1,20 @@
+import {
+  Request,
+  Response,
+} from 'express';
 import httpStatus from 'http-status';
-import { Request, Response } from 'express';
-import catchAsync from '../../../shared/catchAsync';
-import { AuthService } from './auth.service';
+import { Secret } from 'jsonwebtoken';
+
 import config from '../../../config';
+import { jwtHelpers } from '../../../helper/jwtHelper';
+import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 import { IRefreshTokenResponse } from './auth.interface';
-import { Secret } from 'jsonwebtoken';
-import { jwtHelpers } from '../../../helper/jwtHelper';
+import { AuthService } from './auth.service';
 
 // refreshToken
 const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const { refreshToken } = req.cookies;
-
   const result = await AuthService.refreshToken(refreshToken);
 
   // set refresh token into cookie
@@ -78,10 +81,8 @@ const verification = catchAsync(async (req: Request, res: Response) => {
 const verificationEmailSendByClient = catchAsync(
   async (req: Request, res: Response) => {
     const user = req.user;
-
     // Call AuthService to verify the email
     await AuthService.sendEmailVerificationMail(user?.email as string);
-
     // Send success response
     sendResponse(res, {
       statusCode: httpStatus.OK,
@@ -92,9 +93,24 @@ const verificationEmailSendByClient = catchAsync(
   },
 );
 
+
+// ! Controller to make the community.
+const getUsersToMakeCommunity = catchAsync(
+  async (req: Request, res: Response) => {
+    const users = await AuthService.getUsersToMakeCommunity();
+    // Send success response
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      data: users,
+    });
+  },
+);
+
 export const AuthController = {
   refreshToken,
   changePassword,
   verification,
   verificationEmailSendByClient,
+  getUsersToMakeCommunity
 };

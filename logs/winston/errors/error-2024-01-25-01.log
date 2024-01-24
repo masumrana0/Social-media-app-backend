@@ -1,0 +1,48 @@
+{
+  connectionGeneration: 0,
+  level: 'error',
+  message: 'something is wrong connect ETIMEDOUT 34.235.109.42:27017',
+  stack: 'MongoNetworkError: connect ETIMEDOUT 34.235.109.42:27017\n' +
+    '    at connectionFailureError (C:\\Users\\shakil\\projects\\New folder\\Social-media-app-backend\\node_modules\\mongodb\\src\\cmap\\connect.ts:505:14)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\shakil\\projects\\New folder\\Social-media-app-backend\\node_modules\\mongodb\\src\\cmap\\connect.ts:388:16)\n' +
+    '    at Object.onceWrapper (node:events:632:26)\n' +
+    '    at TLSSocket.emit (node:events:517:28)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:151:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:116:3)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:82:21)',
+  label: 'right meow!',
+  timestamp: '2024-01-24T19:43:06.546Z',
+  [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+}
+{
+  connectionGeneration: 0,
+  level: 'error',
+  message: 'something is wrong connect ETIMEDOUT 34.235.109.42:27017',
+  stack: 'MongoNetworkError: connect ETIMEDOUT 34.235.109.42:27017\n' +
+    '    at connectionFailureError (C:\\Users\\shakil\\projects\\New folder\\Social-media-app-backend\\node_modules\\mongodb\\src\\cmap\\connect.ts:505:14)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\shakil\\projects\\New folder\\Social-media-app-backend\\node_modules\\mongodb\\src\\cmap\\connect.ts:388:16)\n' +
+    '    at Object.onceWrapper (node:events:632:26)\n' +
+    '    at TLSSocket.emit (node:events:517:28)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:151:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:116:3)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:82:21)',
+  label: 'right meow!',
+  timestamp: '2024-01-24T19:47:09.430Z',
+  [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+}
+{
+  connectionGeneration: 1,
+  level: 'error',
+  message: 'something is wrong connect ETIMEDOUT 34.235.109.42:27017',
+  stack: 'MongoNetworkError: connect ETIMEDOUT 34.235.109.42:27017\n' +
+    '    at connectionFailureError (C:\\Users\\shakil\\projects\\New folder\\Social-media-app-backend\\node_modules\\mongodb\\src\\cmap\\connect.ts:505:14)\n' +
+    '    at TLSSocket.<anonymous> (C:\\Users\\shakil\\projects\\New folder\\Social-media-app-backend\\node_modules\\mongodb\\src\\cmap\\connect.ts:388:16)\n' +
+    '    at Object.onceWrapper (node:events:632:26)\n' +
+    '    at TLSSocket.emit (node:events:517:28)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:151:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:116:3)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:82:21)',
+  label: 'right meow!',
+  timestamp: '2024-01-24T19:48:13.422Z',
+  [Symbol(errorLabels)]: Set(1) { 'ResetPool' }
+}

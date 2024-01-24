@@ -1,17 +1,21 @@
 import httpStatus from 'http-status';
-import { JwtPayload, Secret } from 'jsonwebtoken';
+import {
+  JwtPayload,
+  Secret,
+} from 'jsonwebtoken';
+
+import config from '../../../config';
+import ApiError from '../../../errors/ApiError';
+import { jwtHelpers } from '../../../helper/jwtHelper';
+import { sendMailerHelper } from '../../../helper/sendMailHelper';
+import { IUser } from '../user/user.interface';
+import { User } from '../user/user.model';
 import {
   IChangePassword,
   ILoginUser,
   ILoginUserResponse,
   IRefreshTokenResponse,
 } from './auth.interface';
-import ApiError from '../../../errors/ApiError';
-import config from '../../../config';
-import { sendMailerHelper } from '../../../helper/sendMailHelper';
-import { User } from '../user/user.model';
-import { IUser } from '../user/user.interface';
-import { jwtHelpers } from '../../../helper/jwtHelper';
 
 // login user
 const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
@@ -232,10 +236,18 @@ const sendEmailVerificationMail = async (email: string): Promise<void> => {
 //   // }
 // };
 
+
+const getUsersToMakeCommunity = async () => {
+  // checking user existed
+  const users = await User.find();
+  return users;
+};
+
 export const AuthService = {
   userLogin,
   refreshToken,
   changePassword,
   emailVerification,
   sendEmailVerificationMail,
+  getUsersToMakeCommunity
 };
