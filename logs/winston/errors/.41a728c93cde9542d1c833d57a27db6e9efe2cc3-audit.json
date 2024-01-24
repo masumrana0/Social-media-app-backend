@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\.41a728c93cde9542d1c833d57a27db6e9efe2cc3-audit.json",
+    "files": [
+        {
+            "date": 1706095670206,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-24-17.log",
+            "hash": "57e7204174fdbba32dff64c013d9edf9d4184792ed4796f74731b9d87d55b4a5"
+        }
+    ],
+    "hashType": "sha256"
+}
