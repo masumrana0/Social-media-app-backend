@@ -32,7 +32,7 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
     isUserExist.password &&
     !(await User.isPasswordMatched(password, isUserExist.password))
   ) {
-    throw new ApiError(httpStatus.UNAUTHORIZED, 'password is inccorect');
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'password is incorrect');
   }
 
   // create accessToken & refresh token

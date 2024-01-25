@@ -1,5 +1,11 @@
-import { Schema, Types, model } from 'mongoose';
+import {
+  model,
+  Schema,
+  Types,
+} from 'mongoose';
+
 import { IPost } from './post.interface';
+
 const PostSchema = new Schema<IPost>({
   user: { type: Types.ObjectId, required: true, ref: 'User' },
   hashTag: { type: String },
@@ -29,4 +35,4 @@ const PostSchema = new Schema<IPost>({
   },
 });
 
-const PostModel = model<IPost>('Post', PostSchema);
+export const PostModel = model<IPost>('Posts', PostSchema);
