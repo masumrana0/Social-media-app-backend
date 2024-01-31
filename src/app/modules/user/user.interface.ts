@@ -64,7 +64,7 @@ export type IUser = {
   name: IName;
   email: string;
   password: string;
-  nationality: IAsianNationality;
+  nationality?: IAsianNationality;
   isChangedPassword?: boolean;
   passwordChangedAt?: Date;
   isEmailVerified?: boolean;

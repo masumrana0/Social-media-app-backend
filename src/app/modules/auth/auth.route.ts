@@ -26,7 +26,7 @@ router.post(
 
 router.post(
   '/register',
-  validateRequest(userValidationZodSchema.UserZodScehma),
+  // validateRequest(userValidationZodSchema.UserZodScehma),
   RegistrationController.Registration,
 );
 

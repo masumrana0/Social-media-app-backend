@@ -20,8 +20,8 @@ const UserZodScehma = z.object({
     email: z
       .string({ required_error: 'email is required' })
       .email({ message: 'invalid email' }),
-    password: z.string(),
-    nationality: z.string(),
+    password: z.string({ required_error: 'password is required' }),
+    // nationality: z.string(),
   }),
 });
 
