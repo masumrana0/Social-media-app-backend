@@ -68,3 +68,25 @@ export const socialMediaPlatforms = [
   'LinkedIn',
   'YouTube',
 ];
+
+export const profileSearchableFields = [
+  'id',
+  'gender',
+  'contactNo',
+  'name.fisrtName',
+  'name.lastName',
+  'skills',
+  'dateOfBirth',
+  'nationality',
+];
+
+export const profileFilterableFields = [
+  'searchTerm',
+  'gender',
+  'contactNo',
+  'name.fisrtName',
+  'name.lastName',
+  'skills',
+  'dateOfBirth',
+  'nationality',
+];

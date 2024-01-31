@@ -1,4 +1,4 @@
-import { Types } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { IUser } from '../user/user.interface';
 
 type IEducation =
@@ -68,7 +68,7 @@ type ISocialMediaPlatform =
   | 'LinkedIn'
   | 'YouTube';
 
- 
+
 type ISocialMediaLink = {
   platfrom: ISocialMediaPlatform;
   link: string;
@@ -85,4 +85,15 @@ export type IProfile = {
   profilePicture?: string;
   socialMediaLinks?: ISocialMediaLink[];
   friendList: Iuser[];
+};
+
+export type ProfiletModel = Model<IProfile, Record<string, unknown>>;
+
+export type IProfileFilters = {
+  searchTerm?: string;
+  id?: string;
+  gender?: string;
+  dateOfBirth?: string;
+  nationality?: string;
+  skills?: string;
 };
