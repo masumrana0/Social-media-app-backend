@@ -28,8 +28,15 @@ const updateSpecificComment = async (
   return result;
 };
 
+// delete comment
+const deleteComment = async (id: string): Promise<IComment | null> => {
+  const result = await Comment.findByIdAndDelete(id);
+  return result;
+};
+
 export const CommentService = {
   submitComment,
   getSpecificPostComments,
   updateSpecificComment,
+  deleteComment,
 };

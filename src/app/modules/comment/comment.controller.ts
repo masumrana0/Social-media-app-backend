@@ -40,20 +40,34 @@ const getSpecificPostComments = catchAsync(
 //  update Specific comment
 const updateSpecificComment = catchAsync(
   async (req: Request, res: Response) => {
-    const postId = req.params.id;
+    const postId = req.params.postId;
     const { comment } = req.body;
     const result = await CommentService.updateSpecificComment(comment, postId);
     sendResponse<IComment>(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'comment fatched successfully !',
+      message: 'comment updated successfully !',
       data: result,
     });
   },
 );
 
+// delete comment
+const deleteComment = catchAsync(async (req: Request, res: Response) => {
+  const postId = req.params.commentId;
+
+  const result = await CommentService.deleteComment(postId);
+  sendResponse<IComment>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'comment deleted successfully !',
+    data: result,
+  });
+});
+
 export const postController = {
   submitComment,
   getSpecificPostComments,
   updateSpecificComment,
+  deleteComment,
 };
