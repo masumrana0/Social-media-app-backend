@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.post(
   '/',
-  auth(ENUM_USER_ROLE.NORMAL_USER),
+  auth(ENUM_USER_ROLE.NORMAL_USER, ENUM_USER_ROLE.ADMIN),
   validateRequest(postValidationZodSchema.postZodScehma),
   postController.submitPost,
 );
