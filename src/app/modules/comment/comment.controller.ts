@@ -1,3 +1,11 @@
+/**
+ * Title: 'Comment feature implement By Masum Rana'
+ * Description: ''
+ * Author: 'Masum Rana'
+ * Date: 31-01-2024
+ *
+ */
+
 import { Request, Response } from 'express';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
@@ -54,9 +62,9 @@ const updateSpecificComment = catchAsync(
 
 // delete comment
 const deleteComment = catchAsync(async (req: Request, res: Response) => {
-  const postId = req.params.commentId;
+  const commentId = req.params.commentId;
+  const result = await CommentService.deleteComment(commentId);
 
-  const result = await CommentService.deleteComment(postId);
   sendResponse<IComment>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -65,7 +73,7 @@ const deleteComment = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const postController = {
+export const CommentController = {
   submitComment,
   getSpecificPostComments,
   updateSpecificComment,
