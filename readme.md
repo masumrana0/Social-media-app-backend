@@ -153,10 +153,8 @@ git commit -m '<type>:[description]',
   "Education": ["HSC", "honus", "masters"],
   "Gender": "male",
   "Nationality": "Bangladeshi",
-  "DateofBirth": "12/01/2023",
   "profilePicture": "url",
-  "socialMediaLinks": ["https://www.facebook.com/", "https://www.linkedin.com/", "https://github.com/"],
-  "friendList":['reference id']
+  "socialMediaLinks": [{title:"facebook",userName:"masumrana02"}],
 ```
 
 - **post**:

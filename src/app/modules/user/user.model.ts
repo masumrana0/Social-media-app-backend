@@ -1,15 +1,11 @@
-/**
- * Title: 'Mongoose schema define by Masum Rana'
- * Description: ''
- * Author: 'Masum Rana'
- * Date: 22-01-2024
- *
- */
-
 import { Schema, model } from 'mongoose';
-import { IUser } from './user.interface';
+import bcrypt from 'bcrypt';
+import { IUser, UserModel } from './user.interface';
+import generateUniqeAccountUserName from '../../../helper/gnerateUserName';
+// import { asianNationalityEnum } from '../profile/profile.constant';
+import config from '../../../config';
 
-const userSchema = new Schema<IUser>({
+const UserSchema = new Schema<IUser, UserModel>({
   userName: {
     type: String,
   },
@@ -25,17 +21,77 @@ const userSchema = new Schema<IUser>({
     },
     required: true,
   },
+
   email: {
     type: String,
     required: true,
-  },
-  phoneNumber: {
-    type: String,
-    required: true,
+    unique: true,
   },
   password: {
     type: String,
+    required: true,
+  },
+
+  // nationality: {
+  //   type: String,
+  //   enum: asianNationalityEnum,
+  //   required: true,
+  // },
+  isEmailVerified: {
+    type: Boolean,
+    default: false,
+  },
+  isChangedPassword: {
+    type: Boolean,
+    default: false,
+  },
+  passwordChangedAt: {
+    type: Date,
   },
 });
 
-export const User = model('user', userSchema);
+// User.create() / user.save()
+UserSchema.pre('save', async function (next) {
+  // hashing user password
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
+  const user = this;
+  user.password = await bcrypt.hash(
+    user.password,
+    Number(config.bcrypt_salt_rounds),
+  );
+
+  if (!user.isChangedPassword) {
+    user.passwordChangedAt = new Date();
+  }
+
+  next();
+});
+
+// createing user Name
+UserSchema.pre('save', async function (next) {
+  if (this.userName) {
+    return;
+  }
+  this.userName = generateUniqeAccountUserName(this.name);
+  next();
+});
+
+// checking isUserExist
+UserSchema.statics.isUserExist = async function (
+  email: string,
+): Promise<IUser | null> {
+  return await User.findOne(
+    { email: email },
+    { _id: 1, password: 1, role: 1, email: 1, isEmailVerified: 1, userName: 1 },
+  );
+};
+
+//password Matching
+UserSchema.statics.isPasswordMatched = async function (
+  givenPassword: string,
+  savedPassword: string,
+): Promise<boolean> {
+  return await bcrypt.compare(givenPassword, savedPassword);
+};
+
+export const User = model<IUser, UserModel>('User', UserSchema);

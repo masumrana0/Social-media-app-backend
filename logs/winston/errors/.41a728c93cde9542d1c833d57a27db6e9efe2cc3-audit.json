@@ -1,0 +1,50 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\.41a728c93cde9542d1c833d57a27db6e9efe2cc3-audit.json",
+    "files": [
+        {
+            "date": 1706095670206,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-24-17.log",
+            "hash": "57e7204174fdbba32dff64c013d9edf9d4184792ed4796f74731b9d87d55b4a5"
+        },
+        {
+            "date": 1706206918815,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-26-00.log",
+            "hash": "96e80043557fd8b81bd2b3356bb0615092a9976bdab492d4ff66328e5ab2153d"
+        },
+        {
+            "date": 1706250102996,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-26-12.log",
+            "hash": "3604f307983ec35ba524039ca4b767709188592cb21665c6cad21c3875c008e8"
+        },
+        {
+            "date": 1706271430839,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-26-18.log",
+            "hash": "75652bc6a28c6a0734341933b89d4b727f6d4bdf82cd4bc472fda18716a5ee32"
+        },
+        {
+            "date": 1706275233454,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-26-19.log",
+            "hash": "5bcad0dc89801cd0c887586ff162bbc43969174fd894e30d941aea80bdd6a2a0"
+        },
+        {
+            "date": 1706277696827,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-26-20.log",
+            "hash": "8eba00fe592d3ae31ac32906b9c59080734174fb68f24deed8f8d0d399c5a2cb"
+        },
+        {
+            "date": 1706368681693,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-27-21.log",
+            "hash": "ff74de4d35bf398be036cb05690c38f06db3f13cb6923edd6264967bb0e6be74"
+        },
+        {
+            "date": 1706435879485,
+            "name": "C:\\Users\\Masum-Rana\\Documents\\Job Placement\\Social-media-backend\\logs\\winston\\errors\\error-2024-01-28-15.log",
+            "hash": "156517502b82fb947354d736862211bbe0201a2ae7d31aa020884324f41dd6f1"
+        }
+    ],
+    "hashType": "sha256"
+}
