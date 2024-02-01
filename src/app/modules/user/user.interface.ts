@@ -1,7 +1,7 @@
-import { Model, Document } from 'mongoose';
+import { Document, Model } from 'mongoose';
 
 /* eslint-disable no-unused-vars */
-type IAsianNationality =
+export type IAsianNationality =
   | 'Afghan'
   | 'Armenian'
   | 'Azerbaijani'
@@ -64,7 +64,6 @@ export type IUser = {
   name: IName;
   email: string;
   password: string;
-  nationality?: IAsianNationality;
   isChangedPassword?: boolean;
   passwordChangedAt?: Date;
   isEmailVerified?: boolean;

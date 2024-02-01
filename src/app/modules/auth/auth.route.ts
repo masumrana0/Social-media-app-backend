@@ -1,13 +1,13 @@
 import express from 'express';
-import validateRequest from '../../middlewares/ValidateRequest';
 import { ENUM_USER_ROLE } from '../../Enum/role';
-import { loginZodSchema } from './login/login.validation';
+import validateRequest from '../../middlewares/ValidateRequest';
 import auth from '../../middlewares/auth';
-import { AuthController } from './auth.controller';
 import { userValidationZodSchema } from '../user/user.validation';
-import { RegistrationController } from './registration/registration.controller';
+import { AuthController } from './auth.controller';
 import { authValidationSchema } from './auth.validation';
 import { LoginController } from './login/login.controller';
+import { loginZodSchema } from './login/login.validation';
+import { RegistrationController } from './registration/registration.controller';
 
 const router = express.Router();
 
@@ -26,7 +26,7 @@ router.post(
 
 router.post(
   '/register',
-  // validateRequest(userValidationZodSchema.UserZodScehma),
+  validateRequest(userValidationZodSchema.UserZodScehma),
   RegistrationController.Registration,
 );
 
