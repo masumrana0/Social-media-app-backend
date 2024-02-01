@@ -4,7 +4,7 @@
   "description": "Project setup By Masum Rana. Within the scope of this project, I integrated ESLint, Prettier, Husky, and lint-staged to uphold stringent standards for code quality and consistency. Furthermore, I established a connection to a MongoDB Atlas database.",
   "main": "dist/server.js",
   "scripts": {
-    "start": "",
+    "start": "node dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
