@@ -9,7 +9,6 @@ import { RegistrationService } from './registration.service';
 // customer registration with login
 const Registration = catchAsync(async (req: Request, res: Response) => {
   const { ...userData } = req.body;
-  console.log(userData,'userData');
 
   const result = await RegistrationService.userRegistration(userData);
   const { refreshToken, accessToken, isEmailVerified } = result;

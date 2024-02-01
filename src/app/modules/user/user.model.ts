@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 import { IUser, UserModel } from './user.interface';
 import generateUniqeAccountUserName from '../../../helper/gnerateUserName';
-// import { asianNationalityEnum } from '../profile/profile.constant';
+
 import config from '../../../config';
 
 const UserSchema = new Schema<IUser, UserModel>({
@@ -21,6 +21,11 @@ const UserSchema = new Schema<IUser, UserModel>({
     },
     required: true,
   },
+  role: {
+    type: String,
+    required: true,
+    enum: ['normal_user', 'admin'],
+  },
 
   email: {
     type: String,
@@ -32,11 +37,6 @@ const UserSchema = new Schema<IUser, UserModel>({
     required: true,
   },
 
-  // nationality: {
-  //   type: String,
-  //   enum: asianNationalityEnum,
-  //   required: true,
-  // },
   isEmailVerified: {
     type: Boolean,
     default: false,

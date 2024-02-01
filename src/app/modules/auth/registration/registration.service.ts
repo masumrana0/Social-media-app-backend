@@ -12,6 +12,8 @@ const userRegistration = async (
     payload.role = 'normal_user';
   }
 
+  console.log(payload);
+
   const result = await User.create(payload);
   if (!result) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Something is wrong');
