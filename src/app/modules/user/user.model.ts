@@ -2,7 +2,6 @@ import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 import { IUser, UserModel } from './user.interface';
 import generateUniqeAccountUserName from '../../../helper/gnerateUserName';
-
 import config from '../../../config';
 
 const UserSchema = new Schema<IUser, UserModel>({

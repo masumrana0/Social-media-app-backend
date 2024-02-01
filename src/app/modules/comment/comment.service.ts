@@ -10,8 +10,9 @@ const submitComment = async (payload: IComment): Promise<IComment | null> => {
 // get Specific Post Comment
 const getSpecificPostComments = async (
   postId: string,
-): Promise<IComment[] | null | undefined> => {
+): Promise<IComment[] | null> => {
   const result = await Comment.find({ post: postId });
+
   return result;
 };
 

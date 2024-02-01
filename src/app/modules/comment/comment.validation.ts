@@ -2,10 +2,8 @@ import z from 'zod';
 
 const commentZodSchema = z.object({
   body: z.object({
-    user: z.object({ _id: z.string() }).optional(),
-    post: z.object({ _id: z.string() }).refine(data => data._id, {
-      message: 'Post ID is required.',
-    }),
+    user: z.string({}).optional(),
+    post: z.string({ required_error: 'post id is required' }),
     comment: z.string({ required_error: 'comment is required' }),
   }),
 });

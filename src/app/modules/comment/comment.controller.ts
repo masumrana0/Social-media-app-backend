@@ -35,7 +35,8 @@ const submitComment = catchAsync(async (req: Request, res: Response) => {
 const getSpecificPostComments = catchAsync(
   async (req: Request, res: Response) => {
     const postId = req.params.postId;
-    const result = CommentService.getSpecificPostComments(postId);
+
+    const result = await CommentService.getSpecificPostComments(postId);
     sendResponse<IComment[]>(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -48,9 +49,13 @@ const getSpecificPostComments = catchAsync(
 //  update Specific comment
 const updateSpecificComment = catchAsync(
   async (req: Request, res: Response) => {
-    const postId = req.params.postId;
+    const commentId = req.params.commentId;
+
     const { comment } = req.body;
-    const result = await CommentService.updateSpecificComment(comment, postId);
+    const result = await CommentService.updateSpecificComment(
+      comment,
+      commentId,
+    );
     sendResponse<IComment>(res, {
       statusCode: httpStatus.OK,
       success: true,
