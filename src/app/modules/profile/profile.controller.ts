@@ -12,8 +12,16 @@ import { ProfileService } from './profile.service';
 
 const createProfile: RequestHandler = catchAsync(
     async (req: Request, res: Response) => {
-        const { profile } = req.body;
-        const result = await ProfileService.createProfile(profile);
+        const { ...profileData } = req.body;
+        const tokenData = req.user
+
+        if (tokenData && 'userid' in tokenData) {
+            const { userid } = tokenData;
+            if (!profileData.user) {
+                profileData.user = userid as string;
+            }
+        }
+        const result = await ProfileService.createProfile(profileData);
 
         sendResponse<IProfile>(res, {
             statusCode: httpStatus.OK,
