@@ -68,4 +68,4 @@ const ProfileSchema = new Schema<IProfile>({
   friendList: { type: [userRefSchema] },
 });
 
-export const Profile = model('Profile', ProfileSchema);
+export const Profile = model<IProfile>('Profile', ProfileSchema);
