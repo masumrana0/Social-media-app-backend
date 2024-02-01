@@ -1,11 +1,12 @@
 import z from 'zod';
+import { reactionEnum } from './reaction.constant';
 const reactionZodSchema = z.object({
   body: z.object({
-    user: z.object({ _id: z.string() }).optional(),
-    post: z.object({ _id: z.string() }).refine(data => data._id, {
-      message: 'Post ID is required.',
+    user: z.object({}).optional(),
+    post: z.string({ required_error: 'postId is required' }),
+    reaction: z.enum(['', ...reactionEnum], {
+      required_error: 'reaction is required',
     }),
-    reaction: z.string({ required_error: 'comment is required' }),
   }),
 });
 

@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { IReaction } from './reaction.interface';
+import { reactionEnum } from './reaction.constant';
 
 const reactionSchema = new Schema<IReaction>({
   user: {
@@ -13,7 +14,7 @@ const reactionSchema = new Schema<IReaction>({
   },
   reaction: {
     type: String,
-    enum: ['like', 'love', 'sad', 'angry'],
+    enum: reactionEnum,
     required: true,
   },
 });
