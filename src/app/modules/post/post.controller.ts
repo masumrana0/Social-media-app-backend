@@ -10,9 +10,12 @@ const submitPost = catchAsync(async (req: Request, res: Response) => {
   const { ...postData } = req.body;
 
   const tokenData = req.user;
-  const { userid } = tokenData;
-  if (!postData?.user) {
-    postData.user = userid as string;
+  // Check if req.user is of type IDecodedToken
+  if (tokenData && 'userid' in tokenData) {
+    const { userid } = tokenData;
+    if (!postData.user) {
+      postData.user = userid as string;
+    }
   }
 
   const result = await postService.submitPost(postData);

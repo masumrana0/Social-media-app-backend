@@ -17,9 +17,12 @@ import { IComment } from './comment.interface';
 const submitComment = catchAsync(async (req: Request, res: Response) => {
   const { ...commentData } = req.body;
   const tokenData = req.user;
-  const { userid } = tokenData;
-  if (!commentData.user) {
-    commentData.user = userid as string;
+  // Check if req.user is of type IDecodedToken
+  if (tokenData && 'userid' in tokenData) {
+    const { userid } = tokenData;
+    if (!commentData.user) {
+      commentData.user = userid as string;
+    }
   }
 
   const result = await CommentService.submitComment(commentData);
