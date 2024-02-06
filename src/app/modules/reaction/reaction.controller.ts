@@ -27,6 +27,18 @@ const makeAndUndoReaction = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllReaction = catchAsync(async (req: Request, res: Response) => {
+  const postid = req.params.postid;
+  const result = await ReactionService.getAllReaction(postid);
+  sendResponse<IReaction[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: ' post reactions fatched successfully !',
+    data: result,
+  });
+});
+
 export const ReactionController = {
   makeAndUndoReaction,
+  getAllReaction,
 };

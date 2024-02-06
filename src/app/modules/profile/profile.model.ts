@@ -33,39 +33,47 @@ const SocialMediaLinkSchema = new Schema({
   },
 });
 
-const ProfileSchema = new Schema<IProfile>({
-  user: userRefSchema,
-  gender: {
-    type: String,
-    enum: genderEnum,
+const ProfileSchema = new Schema<IProfile>(
+  {
+    user: userRefSchema,
+    gender: {
+      type: String,
+      enum: genderEnum,
+    },
+    bio: {
+      type: String,
+      maxlength: 100,
+      minlength: 20,
+    },
+    skills: {
+      type: [
+        {
+          type: String,
+          enum: educationEnum,
+        },
+      ],
+    },
+    dateOfBirth: {
+      type: Date,
+    },
+    nationality: {
+      type: String,
+      enum: asianNationalityEnum,
+    },
+    profilePicture: {
+      type: String,
+    },
+    socialMediaLinks: {
+      type: [SocialMediaLinkSchema],
+    },
+    friendList: { type: [userRefSchema] },
   },
-  bio: {
-    type: String,
-    maxlength: 100,
-    minlength: 20,
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
   },
-  skills: {
-    type: [
-      {
-        type: String,
-        enum: educationEnum,
-      },
-    ],
-  },
-  dateOfBirth: {
-    type: Date,
-  },
-  nationality: {
-    type: String,
-    enum: asianNationalityEnum,
-  },
-  profilePicture: {
-    type: String,
-  },
-  socialMediaLinks: {
-    type: [SocialMediaLinkSchema],
-  },
-  friendList: { type: [userRefSchema] },
-});
+);
 
 export const Profile = model<IProfile>('Profile', ProfileSchema);

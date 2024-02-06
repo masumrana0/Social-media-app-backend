@@ -28,6 +28,12 @@ const makeAndUndoReaction = async (
   }
 };
 
+const getAllReaction = async (postid: string): Promise<IReaction[] | null> => {
+  const result = await Reaction.find({ post: postid });
+  return result;
+};
+
 export const ReactionService = {
   makeAndUndoReaction,
+  getAllReaction,
 };
