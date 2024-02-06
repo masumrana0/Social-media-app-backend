@@ -11,9 +11,9 @@ const PostSchema = new Schema<IPost>(
       type: String,
       required: true,
     },
-    Images: { type: [String] },
+    images: { type: [String] },
 
-    ShareCount: {
+    shareCount: {
       type: Number,
       default: 0,
     },
