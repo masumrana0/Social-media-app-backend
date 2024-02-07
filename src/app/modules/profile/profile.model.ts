@@ -36,16 +36,16 @@ const SocialMediaLinkSchema = new Schema({
 const ProfileSchema = new Schema<IProfile>(
   {
     user: userRefSchema,
-    gender: {
-      type: String,
-      enum: genderEnum,
-    },
+    // gender: {
+    //   type: String,
+    //   enum: genderEnum,
+    // },
     bio: {
       type: String,
       maxlength: 100,
       minlength: 20,
     },
-    skills: {
+    education: {
       type: [
         {
           type: String,
@@ -63,9 +63,22 @@ const ProfileSchema = new Schema<IProfile>(
     profilePicture: {
       type: String,
     },
-    socialMediaLinks: {
-      type: [SocialMediaLinkSchema],
+    facebookUserName: {
+      type: String,
     },
+    instagramUserName: {
+      type: String,
+    },
+    githubUserName: {
+      type: String,
+    },
+    youtubeUserName: {
+      type: String,
+    },
+    linkedinUserName: {
+      type: String,
+    },
+
     friendList: { type: [userRefSchema] },
   },
   {
