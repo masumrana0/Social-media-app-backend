@@ -3,12 +3,17 @@ import { AuthRoutes } from '../auth/auth.route';
 import { PostRoutes } from '../post/post.route';
 import { CommentRoutes } from '../comment/comment.route';
 import { ReactionRoutes } from '../reaction/reaction.route';
+import { ProfileRoutes } from '../profile/profile.route';
 
 const router = express.Router();
 const moduleRoutes = [
   {
     path: '/auth',
     route: AuthRoutes,
+  },
+  {
+    path: '/profile',
+    route:ProfileRoutes,
   },
   {
     path: '/post',

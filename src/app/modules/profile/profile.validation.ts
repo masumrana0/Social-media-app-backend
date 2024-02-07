@@ -15,7 +15,7 @@ import {
 
 const profileZodSchema = z.object({
   body: z.object({
-    user: z.string({ required_error: 'user reference id is required' }),
+    // user: z.string({ required_error: 'user reference id is required' }),
     bio: z.string().min(20).max(100).optional(),
     dateOfBirth: z.date().optional(),
     nationality: z.enum(['', ...asianNationalityEnum]).optional(),
