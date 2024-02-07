@@ -76,6 +76,7 @@ export type IProfile = {
   education?: IEducation[];
   dateOfBirth?: Date;
   nationality?: IAsianNationality;
+  coverPhoto?: string;
   profilePicture?: string;
   facebookUserName?: string;
   linkedinUserName?: string;

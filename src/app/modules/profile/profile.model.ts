@@ -21,18 +21,6 @@ const userRefSchema = {
   required: true,
 };
 
-const SocialMediaLinkSchema = new Schema({
-  platform: {
-    type: String,
-    enum: socialMediaPlatforms,
-    required: true,
-  },
-  link: {
-    type: String,
-    required: true,
-  },
-});
-
 const ProfileSchema = new Schema<IProfile>(
   {
     user: userRefSchema,
@@ -61,6 +49,9 @@ const ProfileSchema = new Schema<IProfile>(
       enum: asianNationalityEnum,
     },
     profilePicture: {
+      type: String,
+    },
+    coverPhoto: {
       type: String,
     },
     facebookUserName: {
