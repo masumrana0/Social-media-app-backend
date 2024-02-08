@@ -4,6 +4,7 @@ import sendResponse from '../../../shared/sendResponse';
 import { IProfile } from './profile.interface';
 import httpStatus from 'http-status';
 import { profileService } from './profile.service';
+import { IUserSpecificField } from '../user/user.interface';
 
 const updateProfile = catchAsync(async (req: Request, res: Response) => {
   const { ...profileData } = req.body;
@@ -60,7 +61,7 @@ const getUserCommonData = catchAsync(async (req: Request, res: Response) => {
 
   const result = await profileService.getUserCommonData(userId as string);
 
-  sendResponse<IProfile>(res, {
+  sendResponse<IUserSpecificField>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'profile fatched successfully !',

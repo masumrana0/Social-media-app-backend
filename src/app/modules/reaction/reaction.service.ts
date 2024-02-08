@@ -31,8 +31,10 @@ const makeAndUndoReaction = async (
 };
 
 const getAllReaction = async (postid: string): Promise<IReaction[] | null> => {
-  const reactions = await Reaction.find({ post: postid });
-  
+  const reactions = await Reaction.find({ post: postid }).sort({
+    createdAt: -1,
+  });
+
   if (reactions.length > 0) {
     const reactionPromises = reactions.map(async reaction => {
       if (reaction.user) {

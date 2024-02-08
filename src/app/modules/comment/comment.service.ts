@@ -12,7 +12,7 @@ const submitComment = async (payload: IComment): Promise<IComment | null> => {
 const getSpecificPostComments = async (
   postId: string,
 ): Promise<IComment[] | null> => {
-  const comments = await Comment.find({ post: postId });
+  const comments = await Comment.find({ post: postId }).sort({ createdAt: -1 });
 
   if (comments.length > 0) {
     const commentPromises = comments.map(async comment => {
