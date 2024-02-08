@@ -20,4 +20,6 @@ router.get(
   profileController.getProfile,
 );
 
+router.get('/common/:userid', profileController.getUserCommonData);
+
 export const ProfileRoutes = router;
