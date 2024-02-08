@@ -1,6 +1,6 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
-import { IName } from '../user/user.interface';
+import { IName, IUserSpecificField } from '../user/user.interface';
 import { User } from '../user/user.model';
 import { IProfile } from './profile.interface';
 import { Profile } from './profile.model';
@@ -26,11 +26,6 @@ const getProfile = async (userid: string): Promise<IProfile | null> => {
   return result;
 };
 
-type IUserSpecificField = {
-  userId?: string;
-  name: IName;
-  profilePicture?: string;
-};
 
 const getUserCommonData = async (
   id: string,

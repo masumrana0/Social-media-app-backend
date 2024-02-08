@@ -69,6 +69,12 @@ export type IUser = {
   isEmailVerified?: boolean;
 };
 
+export type IUserSpecificField = {
+  userId?: string;
+  name: IName;
+  profilePicture?: string;
+};
+
 export type UserModel = Model<IUser & Document> & {
   isUserExist(email: string): Promise<IUser | null>;
   isPasswordMatched(
