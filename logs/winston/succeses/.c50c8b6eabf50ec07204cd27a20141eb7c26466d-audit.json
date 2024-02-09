@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\social-meida-app\\Social-media-app-backend\\logs\\winston\\succeses\\.c50c8b6eabf50ec07204cd27a20141eb7c26466d-audit.json",
+    "files": [
+        {
+            "date": 1707176155239,
+            "name": "D:\\social-meida-app\\Social-media-app-backend\\logs\\winston\\succeses\\success-2024-02-06-01.log",
+            "hash": "9870e84641a02df0fbe058e6fd99c28e3b52199fff7ee420566606788194b21d"
+        },
+        {
+            "date": 1707177619947,
+            "name": "D:\\social-meida-app\\Social-media-app-backend\\logs\\winston\\succeses\\success-2024-02-06-02.log",
+            "hash": "689424f237cbfc048f66409313ccf3f41ba33d9c7e91eb10802a07977b773b3c"
+        }
+    ],
+    "hashType": "sha256"
+}

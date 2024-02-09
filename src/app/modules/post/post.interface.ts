@@ -4,6 +4,6 @@ import { IUser } from '../user/user.interface';
 export type IPost = {
   user: Types.ObjectId | IUser;
   postText: string;
-  Images?: string[];
-  ShareCount?: number;
+  images?: string[];
+  shareCount?: number;
 };
