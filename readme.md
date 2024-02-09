@@ -59,7 +59,7 @@ Social-Media application.In this app have become an integral part of daily life,
 
 ## How to Contribute.
 
-When you contribute, you will create a branch in your own name. Then, you will push your contributed code to that branch.Please Remember, After pushing the code, you must submit a pull request to the development branch.
+When you contribute to our project, you will create a branch in your own name. Then, you will push your contributed code to that branch.Please Remember, After pushing the code, you must submit a pull request to the development branch.
 
 ## please follow these steps:
 

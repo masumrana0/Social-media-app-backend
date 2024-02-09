@@ -12,6 +12,7 @@ const PostSchema = new Schema<IPost>(
       required: true,
     },
     images: { type: [String] },
+
     shareCount: {
       type: Number,
       default: 0,
@@ -19,6 +20,9 @@ const PostSchema = new Schema<IPost>(
   },
   {
     timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
   },
 );
 

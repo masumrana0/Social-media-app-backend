@@ -9,7 +9,7 @@ const submitPost = async (payload: IPost): Promise<IPost | null> => {
 
 // get All post
 const getAllPost = async (): Promise<IPost[] | null> => {
-  const result = await Post.find({});
+  const result = await Post.find({}).sort({ createdAt: -1 });
   return result;
 };
 

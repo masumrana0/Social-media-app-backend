@@ -10,36 +10,28 @@ import z from 'zod';
 import {
   asianNationalityEnum,
   educationEnum,
-  genderEnum,
+  // genderEnum,
 } from './profile.constant';
 
-const profileZodScehma = z.object({
+const profileZodSchema = z.object({
   body: z.object({
-    user: z.string({ required_error: 'user reference id is required' }),
+    // user: z.string({ required_error: 'user reference id is required' }),
     bio: z.string().min(20).max(100).optional(),
-    gender: z
-      .string()
-      .refine(value => value === '' || genderEnum.includes(value), {
-        message: 'Invalid gender value',
-      })
-      .optional(),
-
     dateOfBirth: z.date().optional(),
     nationality: z.enum(['', ...asianNationalityEnum]).optional(),
     skills: z.string().optional(),
     education: z.enum(['', ...educationEnum]).optional(),
     profilePicture: z.string().optional(),
-    socialMediaLinks: z
-      .array(
-        z.object({
-          platform: z.string(),
-          link: z.string(),
-        }),
-      )
-      .optional(),
+    coverPhoto: z.string().optional(),
+    facebookUserName: z.string().optional(),
+    linkedinUserName: z.string().optional(),
+    instagramUserName: z.string().optional(),
+    githubUserName: z.string().optional(),
+    youtubeUserName: z.string().optional(),
+    friendList: z.array(z.string()).optional(),
   }),
 });
 
 export const profileZodValidation = {
-  profileZodScehma,
+  profileZodSchema,
 };
