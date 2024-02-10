@@ -83,5 +83,7 @@ export type IProfile = {
   instagramUserName?: string;
   githubUserName?: string;
   youtubeUserName?: string;
+  userName?: string; // added by samsul
+  status?: string; // added by samsul
   friendList?: Iuser[];
 };

@@ -9,6 +9,7 @@ const updateProfileData = async (
   payload: IProfile,
 ): Promise<IProfile | null> => {
   const { user, ...profileData } = payload;
+  console.log('data', payload);
 
   const isExistedProfile = await Profile.findOne({ user: user });
 
@@ -25,7 +26,6 @@ const getProfile = async (userid: string): Promise<IProfile | null> => {
   const result = await Profile.findOne({ user: userid });
   return result;
 };
-
 
 const getUserCommonData = async (
   id: string,

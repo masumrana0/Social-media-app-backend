@@ -51,6 +51,15 @@ const ProfileSchema = new Schema<IProfile>(
     profilePicture: {
       type: String,
     },
+    // start: added by samsul kobir
+    status: {
+      type: String,
+    },
+    userName: {
+      type: String,
+      unique: true,
+    },
+    // End: added by samsul kobir
     coverPhoto: {
       type: String,
     },

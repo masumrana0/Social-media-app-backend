@@ -43,7 +43,7 @@ const getProfile = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IProfile>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'profile fatched successfully !',
+    message: 'profile fetched successfully !',
     data: result,
   });
 });
