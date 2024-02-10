@@ -14,4 +14,10 @@ router.post(
   ReactionController.makeAndUndoReaction,
 );
 
+router.get(
+  '/:postid',
+  auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.NORMAL_USER),
+  ReactionController.getAllReaction,
+);
+
 export const ReactionRoutes = router;

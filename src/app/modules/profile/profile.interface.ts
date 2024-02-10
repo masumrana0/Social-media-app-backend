@@ -60,29 +60,30 @@ type IAsianNationality =
   | 'Uzbekistani'
   | 'Vietnamese'
   | 'Yemeni';
-type IGender = 'male' | 'female';
-type ISocialMediaPlatform =
-  | 'Facebook'
-  | 'Github'
-  | 'Instagram'
-  | 'LinkedIn'
-  | 'YouTube';
 
- 
-type ISocialMediaLink = {
-  platfrom: ISocialMediaPlatform;
-  link: string;
-};
+// type IGender = 'male' | 'female';
+// type ISocialMediaPlatform =
+//   | 'Facebook'
+//   | 'Github'
+//   | 'Instagram'
+//   | 'LinkedIn'
+//   | 'YouTube';
 
 type Iuser = Types.ObjectId | IUser;
 export type IProfile = {
   user: Iuser;
-  gender?: IGender;
   bio?: string;
-  skills?: IEducation[];
+  education?: IEducation[];
   dateOfBirth?: Date;
   nationality?: IAsianNationality;
+  coverPhoto?: string;
   profilePicture?: string;
-  socialMediaLinks?: ISocialMediaLink[];
-  friendList: Iuser[];
+  facebookUserName?: string;
+  linkedinUserName?: string;
+  instagramUserName?: string;
+  githubUserName?: string;
+  youtubeUserName?: string;
+  userName?: string; // added by samsul
+  status?: string; // added by samsul
+  friendList?: Iuser[];
 };

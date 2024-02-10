@@ -7,14 +7,18 @@ import { ReactionService } from './reaction.service';
 
 //  update raction
 const makeAndUndoReaction = catchAsync(async (req: Request, res: Response) => {
-  const { ...reactoinData } = req.body;
+  const { ...reactionData } = req.body;
   const tokenData = req.user;
-  const { userid } = tokenData;
-  if (!reactoinData.user) {
-    reactoinData.user = userid as string;
+
+  // Check if req.user is of type IDecodedToken
+  if (tokenData && 'userid' in tokenData) {
+    const { userid } = tokenData;
+    if (!reactionData.user) {
+      reactionData.user = userid as string;
+    }
   }
 
-  const result = await ReactionService.makeAndUndoReaction(reactoinData);
+  const result = await ReactionService.makeAndUndoReaction(reactionData);
   sendResponse<IReaction>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -23,6 +27,18 @@ const makeAndUndoReaction = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getAllReaction = catchAsync(async (req: Request, res: Response) => {
+  const postid = req.params.postid;
+  const result = await ReactionService.getAllReaction(postid);
+  sendResponse<IReaction[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: ' post reactions fatched successfully !',
+    data: result,
+  });
+});
+
 export const ReactionController = {
   makeAndUndoReaction,
+  getAllReaction,
 };

@@ -11,7 +11,8 @@ const userLogin = catchAsync(async (req: Request, res: Response) => {
   const { ...loginData } = req.body;
   const result = await AuthService.userLogin(loginData);
   const { refreshToken, accessToken, isEmailVerified } = result;
-  const responseData = { accessToken, isEmailVerified };
+  const responseData = { accessToken, isEmailVerified }
+  
   // set refresh token into cookie
   const cookieOptions = {
     secure: config.env === 'production',
