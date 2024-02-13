@@ -69,6 +69,30 @@ const getUserCommonData = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+// const uploadPhoto=catchAsync(async (req: Request, res: Response) => {
+//   const userId = req.params.userid;
+//   console.log(userId);
+
+//   // Check if req.user is of type IDecodedToken
+//   // let userId;
+//   // if (tokenData && 'userid' in tokenData) {
+//   //   const { userid } = tokenData;
+//   //   userId = userid as string;
+//   // }
+
+//   const result = await profileService.getUserCommonData(userId as string);
+
+//   sendResponse<IUserSpecificField>(res, {
+//     statusCode: httpStatus.OK,
+//     success: true,
+//     message: 'profile fatched successfully !',
+//     data: result,
+//   });
+// });
+
+
+
+
 export const profileController = {
   updateProfile,
   getProfile,

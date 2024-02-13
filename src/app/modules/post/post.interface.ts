@@ -1,8 +1,8 @@
 import { Types } from 'mongoose';
-import { IUser } from '../user/user.interface';
+import { IUser, IUserSpecificField } from '../user/user.interface';
 
 export type IPost = {
-  user: Types.ObjectId | IUser;
+  user: Types.ObjectId | IUser | IUserSpecificField;
   postText: string;
   images?: string[];
   shareCount?: number;

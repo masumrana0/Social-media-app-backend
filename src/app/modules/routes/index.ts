@@ -4,6 +4,7 @@ import { PostRoutes } from '../post/post.route';
 import { CommentRoutes } from '../comment/comment.route';
 import { ReactionRoutes } from '../reaction/reaction.route';
 import { ProfileRoutes } from '../profile/profile.route';
+import { ConversationRoute } from '../conversation/conversation.route';
 
 const router = express.Router();
 const moduleRoutes = [
@@ -13,7 +14,7 @@ const moduleRoutes = [
   },
   {
     path: '/profile',
-    route:ProfileRoutes,
+    route: ProfileRoutes,
   },
   {
     path: '/post',
@@ -26,6 +27,10 @@ const moduleRoutes = [
   {
     path: '/reaction',
     route: ReactionRoutes,
+  },
+  {
+    path: '/conversation',
+    route: ConversationRoute,
   },
 ];
 

@@ -1,4 +1,5 @@
 import express, { Application } from 'express';
+import http from 'http';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import GlobalErrorHandler from './app/middlewares/GlobalErrorHanlder';
@@ -6,6 +7,11 @@ import router from './app/modules/routes';
 import handleNotFoundApi from './errors/handleNotFoundError';
 
 const app: Application = express();
+// const server = http.createServer(app);
+// socket creation
+
+// const io = require('socket.io')(server);
+// global.io = io;
 
 app.use(cookieParser());
 
@@ -25,11 +31,6 @@ app.use(
     credentials: true,
   }),
 );
-
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   next();
-// });
 
 app.get('/', (req, res) => {
   res.send('Server Working successfully');

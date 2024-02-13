@@ -22,10 +22,9 @@ const updateProfileData = async (
 };
 
 const getProfile = async (userid: string): Promise<IProfile | null> => {
-  const result = await Profile.findOne({ user: userid });
+  const result = await Profile.findOne({ user: userid }).populate('user');
   return result;
 };
-
 
 const getUserCommonData = async (
   id: string,
