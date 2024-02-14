@@ -1,17 +1,17 @@
 import express, { Application } from 'express';
 import http from 'http';
 import cors from 'cors';
+import { Server } from 'socket.io';
 import cookieParser from 'cookie-parser';
 import GlobalErrorHandler from './app/middlewares/GlobalErrorHanlder';
 import router from './app/modules/routes';
 import handleNotFoundApi from './errors/handleNotFoundError';
 
 const app: Application = express();
-// const server = http.createServer(app);
-// socket creation
+const server = http.createServer(app);
 
-// const io = require('socket.io')(server);
-// global.io = io;
+// socket creation
+export const io = new Server(server);
 
 app.use(cookieParser());
 
