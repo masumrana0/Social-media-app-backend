@@ -15,9 +15,9 @@ router.post(
 );
 
 router.get(
-  '/:postid',
+  '/:comment_id',
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.NORMAL_USER),
-  ReactionController.getAllReaction,
+  Comment_ReactionController.getAllReaction,
 );
 
 export const ReactionRoutes = router;

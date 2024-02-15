@@ -36,7 +36,7 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
       email: Email,
     },
     config.jwt.token_secret as Secret,
-    '2h',
+    config.jwt.token_expirein as string,
   );
 
   // create refreshToken

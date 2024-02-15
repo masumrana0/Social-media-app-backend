@@ -20,4 +20,4 @@ const storySchema = new Schema<IStory>(
   },
 );
 
-export const Story = model<IStory>('Post', storySchema);
+export const Story = model<IStory>('Story', storySchema);

@@ -8,7 +8,6 @@ import httpStatus from 'http-status';
 //  submitPost
 const submitPost = catchAsync(async (req: Request, res: Response) => {
   const { ...postData } = req.body;
-  console.log(postData.Images[0]);
 
   const tokenData = req.user;
   // Check if req.user is of type IDecodedToken

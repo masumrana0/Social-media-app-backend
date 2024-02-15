@@ -5,8 +5,9 @@ import { Post } from './post.model';
 
 // Submited post
 const submitPost = async (payload: IPost): Promise<IPost | null> => {
-  // const result = await Post.create(payload);
-  // return result;
+  console.log(payload);
+  const result = await Post.create(payload);
+  return result;
 };
 
 // get All post
