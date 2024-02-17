@@ -27,6 +27,19 @@ const createStory = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+// getAllStory
+const getAllStory = catchAsync(async (req: Request, res: Response) => {
+  const result = await StoryService.getAllStory();
+
+  sendResponse<IStory[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'story submited successfully !',
+    data: result,
+  });
+});
+
 export const storyController = {
   createStory,
+  getAllStory,
 };
