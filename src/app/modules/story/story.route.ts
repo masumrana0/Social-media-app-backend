@@ -10,5 +10,6 @@ router.post(
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.NORMAL_USER),
   storyController.createStory,
 );
+router.get('/', storyController.getAllStory);
 
 export const storyRoutes = router;
