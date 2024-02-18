@@ -4,50 +4,58 @@ import { IUser, UserModel } from './user.interface';
 import generateUniqeAccountUserName from '../../../helper/gnerateUserName';
 import config from '../../../config';
 
-const UserSchema = new Schema<IUser, UserModel>({
-  userName: {
-    type: String,
-  },
-  name: {
-    type: {
-      firstName: {
-        type: String,
-        required: true,
-      },
-      lastName: {
-        type: String,
-      },
+const UserSchema = new Schema<IUser, UserModel>(
+  {
+    userName: {
+      type: String,
     },
-    required: true,
-  },
-  role: {
-    type: String,
-    required: true,
-    enum: ['normal_user', 'admin'],
-  },
+    name: {
+      type: {
+        firstName: {
+          type: String,
+          required: true,
+        },
+        lastName: {
+          type: String,
+        },
+      },
+      required: true,
+    },
+    role: {
+      type: String,
+      required: true,
+      enum: ['normal_user', 'admin'],
+    },
 
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
 
-  isEmailVerified: {
-    type: Boolean,
-    default: false,
+    isEmailVerified: {
+      type: Boolean,
+      default: false,
+    },
+    isChangedPassword: {
+      type: Boolean,
+      default: false,
+    },
+    passwordChangedAt: {
+      type: Date,
+    },
   },
-  isChangedPassword: {
-    type: Boolean,
-    default: false,
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
   },
-  passwordChangedAt: {
-    type: Date,
-  },
-});
+);
 
 // User.create() / user.save()
 UserSchema.pre('save', async function (next) {

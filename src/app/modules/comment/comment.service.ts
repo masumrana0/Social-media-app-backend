@@ -1,3 +1,5 @@
+import { profileService } from '../profile/profile.service';
+import { IUserSpecificField } from '../user/user.interface';
 import { IComment } from './comment.interface';
 import { Comment } from './comment.model';
 
@@ -7,13 +9,27 @@ const submitComment = async (payload: IComment): Promise<IComment | null> => {
   return result;
 };
 
-// get Specific Post Comment
 const getSpecificPostComments = async (
   postId: string,
 ): Promise<IComment[] | null> => {
-  const result = await Comment.find({ post: postId });
+  const comments = await Comment.find({ post: postId }).sort({ createdAt: -1 });
 
-  return result;
+  if (comments.length > 0) {
+    const commentPromises = comments.map(async comment => {
+      const profile = await profileService.getUserCommonData(
+        comment.user as string,
+      );
+
+      const updatedComment = comment.toObject();
+      updatedComment.user = profile as IUserSpecificField;
+      return updatedComment as IComment;
+    });
+
+    const result = await Promise.all(commentPromises);
+    return result;
+  }
+
+  return [];
 };
 
 // update  Specific comment
