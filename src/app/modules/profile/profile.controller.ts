@@ -49,15 +49,13 @@ const getProfile = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getUserCommonData = catchAsync(async (req: Request, res: Response) => {
-  const userId = req.params.userid;
-  console.log(userId);
-
   // Check if req.user is of type IDecodedToken
-  // let userId;
-  // if (tokenData && 'userid' in tokenData) {
-  //   const { userid } = tokenData;
-  //   userId = userid as string;
-  // }
+  const tokenData = req.user;
+  let userId;
+  if (tokenData && 'userid' in tokenData) {
+    const { userid } = tokenData;
+    userId = userid as string;
+  }
 
   const result = await profileService.getUserCommonData(userId as string);
 
@@ -89,9 +87,6 @@ const getUserCommonData = catchAsync(async (req: Request, res: Response) => {
 //     data: result,
 //   });
 // });
-
-
-
 
 export const profileController = {
   updateProfile,

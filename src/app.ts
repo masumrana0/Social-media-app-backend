@@ -19,15 +19,9 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(
-//   cors({
-//     origin: '*',
-//   }),
-// );
-
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://circleup-client.vercel.app'],
+    origin: ['https://circleup-client.vercel.app', 'http://localhost:3000'],
     credentials: true,
   }),
 );
