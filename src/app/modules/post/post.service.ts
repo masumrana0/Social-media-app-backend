@@ -5,7 +5,6 @@ import { Post } from './post.model';
 
 // Submited post
 const submitPost = async (payload: IPost): Promise<IPost | null> => {
-  console.log(payload);
   const result = await Post.create(payload);
   return result;
 };

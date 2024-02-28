@@ -4,7 +4,7 @@ import { ENUM_USER_ROLE } from '../../Enum/role';
 import { loginZodSchema } from './login/login.validation';
 import auth from '../../middlewares/auth';
 import { AuthController } from './auth.controller';
-import { userValidationZodSchema } from '../user/user.validation';
+
 import { RegistrationController } from './registration/registration.controller';
 import { authValidationSchema } from './auth.validation';
 import { LoginController } from './login/login.controller';

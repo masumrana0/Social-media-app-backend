@@ -13,57 +13,6 @@ import { User } from '../user/user.model';
 import { IUser } from '../user/user.interface';
 import { jwtHelpers } from '../../../helper/jwtHelper';
 
-// login user
-const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
-  const { email, password } = payload;
-
-  // checking isUserExist
-  const isUserExist = await User.isUserExist(email);
-  if (!isUserExist) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'User does not exist');
-  }
-
-  // matching password
-  if (
-    isUserExist.password &&
-    !(await User.isPasswordMatched(password, isUserExist.password))
-  ) {
-    throw new ApiError(httpStatus.UNAUTHORIZED, 'password is inccorect');
-  }
-
-  // create accessToken & refresh token
-  const { _id, role, email: Email, isEmailVerified, userName } = isUserExist;
-
-  // create accessToken
-  const accessToken = jwtHelpers.createToken(
-    {
-      userid: _id,
-      userName: userName,
-      role: role,
-      email: Email,
-    },
-    config.jwt.token_secret as Secret,
-    '2h',
-  );
-
-  // create refreshToken
-  const refreshToken = jwtHelpers.createToken(
-    {
-      userid: _id,
-      userName: userName,
-      role: role,
-      email: Email,
-    },
-    config.jwt.refresh_token_secret as Secret,
-    config.jwt.refresh_token_expirein as string,
-  );
-
-  return {
-    accessToken,
-    refreshToken,
-    isEmailVerified,
-  };
-};
 
 // refresh Token
 const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
@@ -233,7 +182,6 @@ const sendEmailVerificationMail = async (email: string): Promise<void> => {
 // };
 
 export const AuthService = {
-  userLogin,
   refreshToken,
   changePassword,
   emailVerification,

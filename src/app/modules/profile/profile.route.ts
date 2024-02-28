@@ -20,6 +20,10 @@ router.get(
   profileController.getProfile,
 );
 
-router.get('/common/:userid', profileController.getUserCommonData);
+router.get(
+  '/common',
+  auth(ENUM_USER_ROLE.NORMAL_USER, ENUM_USER_ROLE.ADMIN),
+  profileController.getUserCommonData,
+);
 
 export const ProfileRoutes = router;
