@@ -5,12 +5,10 @@ import ApiError from '../../../../errors/ApiError';
 import httpStatus from 'http-status';
 import { User } from '../../user/user.model';
 import { ILoginUser, ILoginUserResponse } from '../auth.interface';
-// import jwt, { JwtPayload, Secret } from 'jsonwebtoken';
 
 // login user
 const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   const { email, password } = payload;
-  // console.log('hello payload', payload);
 
   // checking isUserExist
   const isUserExist = await User.isUserExist(email);

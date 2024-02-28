@@ -56,7 +56,6 @@ const getUserCommonData = catchAsync(async (req: Request, res: Response) => {
     const { userid } = tokenData;
     userId = userid as string;
   }
-  console.log(userId);
 
   const result = await profileService.getUserCommonData(userId as string);
 
