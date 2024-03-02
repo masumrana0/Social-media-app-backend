@@ -16,14 +16,14 @@ import { IComment } from './comment.interface';
 //  submitComment
 const submitComment = catchAsync(async (req: Request, res: Response) => {
   const { ...commentData } = req.body;
-  const tokenData = req.user;
-  // Check if req.user is of type IDecodedToken
-  if (tokenData && 'userid' in tokenData) {
-    const { userid } = tokenData;
-    if (!commentData.user) {
-      commentData.user = userid as string;
-    }
-  }
+  // const tokenData = req.user;
+  // // Check if req.user is of type IDecodedToken
+  // if (tokenData && 'userid' in tokenData) {
+  //   const { userid } = tokenData;
+  //   if (!commentData.user) {
+  //     commentData.user = userid as string;
+  //   }
+  // }
 
   const result = await CommentService.submitComment(commentData);
   sendResponse<IComment>(res, {
