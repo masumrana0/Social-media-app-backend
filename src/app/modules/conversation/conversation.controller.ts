@@ -8,6 +8,14 @@ import httpStatus from 'http-status';
 // create conversation
 const createConversation = catchAsync(async (req: Request, res: Response) => {
   const { ...conversationData } = req.body;
+  const tokenData = req.user;
+  // Check if req.user is of type IDecodedToken
+  if (tokenData && 'userid' in tokenData) {
+    const { userid } = tokenData;
+    if (!conversationData.creator) {
+      conversationData.creator = userid as string;
+    }
+  }
   const result = await conversationService.createConversation(conversationData);
 
   sendResponse<IConversation>(res, {

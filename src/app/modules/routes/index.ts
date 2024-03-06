@@ -7,6 +7,7 @@ import { ProfileRoutes } from '../profile/profile.route';
 import { ConversationRoute } from '../conversation/conversation.route';
 import { Comment_ReplyRoutes } from '../commentReply/comment_reply.route';
 import { storyRoutes } from '../story/story.route';
+import { MessageRoute } from '../message/message.route';
 
 const router = express.Router();
 const moduleRoutes = [
@@ -37,6 +38,10 @@ const moduleRoutes = [
   {
     path: '/conversation',
     route: ConversationRoute,
+  },
+  {
+    path: '/message',
+    route: MessageRoute,
   },
   {
     path: '/story',
