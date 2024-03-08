@@ -7,9 +7,9 @@
  */
 
 import { Request, Response } from 'express';
+import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import httpStatus from 'http-status';
 import { Comment_ReplyService } from './comment_Reply.service';
 import { IComment_Reply } from './comment_reply.interface';
 
@@ -18,10 +18,10 @@ const submitComment_Reply = catchAsync(async (req: Request, res: Response) => {
   const { ...commentData } = req.body;
   const tokenData = req.user;
   // Check if req.user is of type IDecodedToken
-  if (tokenData && 'userid' in tokenData) {
-    const { userid } = tokenData;
+  if (tokenData && 'userId' in tokenData) {
+    const { userId } = tokenData;
     if (!commentData.user) {
-      commentData.user = userid as string;
+      commentData.user = userId as string;
     }
   }
 

@@ -12,10 +12,10 @@ const makeAndUndoReaction = catchAsync(async (req: Request, res: Response) => {
   const tokenData = req.user;
 
   // Check if req.user is of type IDecodedToken
-  if (tokenData && 'userid' in tokenData) {
-    const { userid } = tokenData;
+  if (tokenData && 'userId' in tokenData) {
+    const { userId } = tokenData;
     if (!reactionData.user) {
-      reactionData.user = userid as string;
+      reactionData.user = userId as string;
     }
   }
 

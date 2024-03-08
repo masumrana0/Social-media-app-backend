@@ -11,10 +11,10 @@ const updateProfile = catchAsync(async (req: Request, res: Response) => {
 
   const tokenData = req.user;
   // Check if req.user is of type IDecodedToken
-  if (tokenData && 'userid' in tokenData) {
-    const { userid } = tokenData;
+  if (tokenData && 'userId' in tokenData) {
+    const { userId } = tokenData;
     if (!profileData.user) {
-      profileData.user = userid as string;
+      profileData.user = userId as string;
     }
   }
 
@@ -33,9 +33,9 @@ const getProfile = catchAsync(async (req: Request, res: Response) => {
 
   // Check if req.user is of type IDecodedToken
   let userId;
-  if (tokenData && 'userid' in tokenData) {
-    const { userid } = tokenData;
-    userId = userid as string;
+  if (tokenData && 'userId' in tokenData) {
+    const { userId } = tokenData;
+    userId = userId as string;
   }
 
   const result = await profileService.getProfile(userId as string);
@@ -52,9 +52,9 @@ const getUserCommonData = catchAsync(async (req: Request, res: Response) => {
   // Check if req.user is of type IDecodedToken
   const tokenData = req.user;
   let userId;
-  if (tokenData && 'userid' in tokenData) {
-    const { userid } = tokenData;
-    userId = userid as string;
+  if (tokenData && 'userId' in tokenData) {
+    const { userId } = tokenData;
+    userId = userId as string;
   }
 
   const result = await profileService.getUserCommonData(userId as string);
@@ -68,14 +68,14 @@ const getUserCommonData = catchAsync(async (req: Request, res: Response) => {
 });
 
 // const uploadPhoto=catchAsync(async (req: Request, res: Response) => {
-//   const userId = req.params.userid;
+//   const userId = req.params.userId;
 //   console.log(userId);
 
 //   // Check if req.user is of type IDecodedToken
 //   // let userId;
-//   // if (tokenData && 'userid' in tokenData) {
-//   //   const { userid } = tokenData;
-//   //   userId = userid as string;
+//   // if (tokenData && 'userId' in tokenData) {
+//   //   const { userId } = tokenData;
+//   //   userId = userId as string;
 //   // }
 
 //   const result = await profileService.getUserCommonData(userId as string);

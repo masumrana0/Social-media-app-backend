@@ -13,7 +13,6 @@ import { User } from '../user/user.model';
 import { IUser } from '../user/user.interface';
 import { jwtHelpers } from '../../../helper/jwtHelper';
 
-
 // refresh Token
 const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
   //verify token
@@ -59,7 +58,7 @@ const changePassword = async (
   const { oldPassord, newPassword } = payload;
 
   // checking user existed
-  const isUserExist = await User.findById(user?.userid);
+  const isUserExist = await User.findById(user?.userId);
   // console.log(isUserExist);
 
   if (!isUserExist) {

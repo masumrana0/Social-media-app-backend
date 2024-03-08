@@ -2,7 +2,7 @@
 import { JwtPayload } from 'jsonwebtoken';
 
 interface IDecodedToken {
-  userid: string;
+  userId: string;
   userName: string;
   role: 'normal_user' | 'admin';
   email: string;

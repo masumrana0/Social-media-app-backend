@@ -29,7 +29,7 @@ const getInbox = async (userId: string): Promise<IConversation[] | null> => {
 
         // participant Profile
         const participantProfile = await profileService.getUserCommonData(
-          conversation.creator as unknown as string,
+          conversation.participant as unknown as string,
         );
 
         const updatedConversation = conversation.toObject() as IConversation;

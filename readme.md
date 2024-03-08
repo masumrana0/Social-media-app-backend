@@ -168,9 +168,9 @@ git commit -m '<type>:[description]',
     "Images": [],
     "comments": "reference id",
     "Reactions": [
-      { "userID": 555, "emoji": "👍" },
-      { "userID": 999, "emoji": "❤️" },
-      { "userID": 555, "emoji": "👎" }
+      { "userId": 555, "emoji": "👍" },
+      { "userId": 999, "emoji": "❤️" },
+      { "userId": 555, "emoji": "👎" }
     ],
     "Location": {"latitude": 37.7749, "longitude": -122.4194},
     "ShareCount": 10

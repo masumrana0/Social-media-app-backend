@@ -1,8 +1,8 @@
+import httpStatus from 'http-status';
 import { Secret } from 'jsonwebtoken';
 import config from '../../../../config';
-import { jwtHelpers } from '../../../../helper/jwtHelper';
 import ApiError from '../../../../errors/ApiError';
-import httpStatus from 'http-status';
+import { jwtHelpers } from '../../../../helper/jwtHelper';
 import { User } from '../../user/user.model';
 import { ILoginUser, ILoginUserResponse } from '../auth.interface';
 
@@ -30,7 +30,7 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   // create accessToken
   const accessToken = jwtHelpers.createToken(
     {
-      userid: _id,
+      userId: _id,
       userName: userName,
       role: role,
       email: Email,
@@ -42,7 +42,7 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   // create refreshToken
   const refreshToken = jwtHelpers.createToken(
     {
-      userid: _id,
+      userId: _id,
       userName: userName,
       role: role,
       email: Email,

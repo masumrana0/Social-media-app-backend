@@ -11,10 +11,10 @@ const submitPost = catchAsync(async (req: Request, res: Response) => {
 
   const tokenData = req.user;
   // Check if req.user is of type IDecodedToken
-  if (tokenData && 'userid' in tokenData) {
-    const { userid } = tokenData;
+  if (tokenData && 'userId' in tokenData) {
+    const { userId } = tokenData;
     if (!postData.user) {
-      postData.user = userid as string;
+      postData.user = userId as string;
     }
   }
 

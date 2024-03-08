@@ -11,6 +11,10 @@ router.post(
   MessageController.sendMessage,
 );
 
-router.get('/', MessageController.getMessage);
+router.get(
+  '/:conversationId',
+  auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.NORMAL_USER),
+  MessageController.getMessage,
+);
 
 export const MessageRoute = router;

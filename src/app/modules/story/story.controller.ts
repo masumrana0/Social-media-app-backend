@@ -10,10 +10,10 @@ const createStory = catchAsync(async (req: Request, res: Response) => {
 
   const tokenData = req.user;
   // Check if req.user is of type IDecodedToken
-  if (tokenData && 'userid' in tokenData) {
-    const { userid } = tokenData;
+  if (tokenData && 'userId' in tokenData) {
+    const { userId } = tokenData;
     if (!storyData.user) {
-      storyData.user = userid as string;
+      storyData.user = userId as string;
     }
   }
 

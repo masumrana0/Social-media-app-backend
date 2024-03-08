@@ -1,14 +1,25 @@
-import { io } from '../../../app';
+import { getReceiverSocketId, io } from '../../../app';
 import { Conversation } from '../conversation/conversation.model';
 import { IMessage } from './message.interface';
 import { Message } from './message.model';
 
 const sendMessage = async (payload: IMessage) => {
-  //  checking isExisted Conversation
+  console.log(payload);
+
+  // Check if there's an existing conversation with sender and receiver regardless of order
   const isExistConversation = await Conversation.findOne({
-    creator: payload.sender,
-    participant: payload.receiver,
+    $or: [
+      {
+        creator: payload.sender,
+        participant: payload.receiver,
+      },
+      {
+        creator: payload.receiver,
+        participant: payload.sender,
+      },
+    ],
   });
+  console.log(isExistConversation);
 
   //  if is Existed Conversation then it's set conversation_id
   if (isExistConversation) {
@@ -29,16 +40,17 @@ const sendMessage = async (payload: IMessage) => {
   const result = await Message.create(payload);
   // attachement = result?.attachment;
 
-  // emit soket event
-  io.emit('new_message', {
-    message: {
+  const receiverSocketId = getReceiverSocketId(payload.receiver as string);
+  if (receiverSocketId) {
+    // emit soket event
+    io.to(receiverSocketId).emit('new_message', {
+      _id: result?._id,
       conversion_id: payload.conversation_id,
       sender: payload.sender,
       text: payload.text,
-      // attachement: attachement,
       date_time: result.date_time,
-    },
-  });
+    });
+  }
 
   return result;
 };

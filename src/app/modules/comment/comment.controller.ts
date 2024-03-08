@@ -7,21 +7,21 @@
  */
 
 import { Request, Response } from 'express';
+import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import httpStatus from 'http-status';
-import { CommentService } from './comment.service';
 import { IComment } from './comment.interface';
+import { CommentService } from './comment.service';
 
 //  submitComment
 const submitComment = catchAsync(async (req: Request, res: Response) => {
   const { ...commentData } = req.body;
   // const tokenData = req.user;
   // // Check if req.user is of type IDecodedToken
-  // if (tokenData && 'userid' in tokenData) {
-  //   const { userid } = tokenData;
+  // if (tokenData && 'userId' in tokenData) {
+  //   const { userId } = tokenData;
   //   if (!commentData.user) {
-  //     commentData.user = userid as string;
+  //     commentData.user = userId as string;
   //   }
   // }
 

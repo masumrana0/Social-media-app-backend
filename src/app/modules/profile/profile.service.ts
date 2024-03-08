@@ -21,8 +21,8 @@ const updateProfileData = async (
   }
 };
 
-const getProfile = async (userid: string): Promise<IProfile | null> => {
-  const result = await Profile.findOne({ user: userid }).populate('user');
+const getProfile = async (userId: string): Promise<IProfile | null> => {
+  const result = await Profile.findOne({ user: userId }).populate('user');
   return result;
 };
 

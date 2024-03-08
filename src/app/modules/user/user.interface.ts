@@ -1,4 +1,4 @@
-import { Model, Document } from 'mongoose';
+import { Document, Model } from 'mongoose';
 
 /* eslint-disable no-unused-vars */
 type IAsianNationality =

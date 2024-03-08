@@ -8,7 +8,8 @@
 
 import mongoose from 'mongoose';
 import config from './config/index';
-import app from './app';
+import { server } from './app';
+// import app from './app';
 import { Server } from 'http';
 // import { logger, errorLogger } from './shared/logger';
 
@@ -17,13 +18,13 @@ process.on('uncaughtException', () => {
   process.exit(1);
 });
 
-let server: Server;
+let myServer: Server;
 
 const Run = async () => {
   try {
     await mongoose.connect(config.database_url as string);
     console.log('Database is connected');
-    server = app.listen(config.port, () => {
+    myServer = server.listen(config.port, () => {
       console.log(`Example app listening on port ${config.port}`);
     });
   } catch (error) {
@@ -34,8 +35,8 @@ const Run = async () => {
     console.log(
       `Unhandle Rejection is detected resion ${reason}  , and promise ${promise} we are closing our server`,
     );
-    if (server) {
-      server.close(() => {
+    if (myServer) {
+      myServer.close(() => {
         process.exit(1);
       });
     } else {
@@ -48,7 +49,7 @@ Run();
 
 process.on('SIGTERM', () => {
   console.log('Sigterm is Recived');
-  if (server) {
-    server.close();
+  if (myServer) {
+    myServer.close();
   }
 });
